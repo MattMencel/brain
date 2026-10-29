@@ -1,0 +1,19 @@
+# brain's default database: Postgres 18 + ParadeDB pg_search, reachable only from this machine.
+services:
+  db:
+    image: paradedb/paradedb:v0.26.3-pg18
+    environment:
+      POSTGRES_DB: brain
+      POSTGRES_HOST_AUTH_METHOD: trust  # bound to 127.0.0.1 below
+    ports:
+      - "127.0.0.1:54329:5432"
+    volumes:
+      - data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "brain"]
+      interval: 2s
+      retries: 30
+    restart: unless-stopped
+
+volumes:
+  data: {}

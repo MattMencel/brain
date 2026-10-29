@@ -1,0 +1,27 @@
+[project]
+name = "brain"
+version = "0.1.0"
+description = "Local BM25 index over your Claude Code sessions, git, GitHub PRs, Jira and Slack"
+license = "MIT"
+readme = "README.md"
+authors = [
+    { name = "Matt Mencel" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "keyring>=25.7.0",
+    "psycopg[binary]>=3.3.6",
+]
+
+[project.scripts]
+brain = "brain:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.3",
+]

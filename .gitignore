@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# eval data quotes work content; it lives in ~/.local/share/brain/eval
+.claude/hillclimb/
+eval/cases.*
+**/traces/
+
+# personal agent context: may name an employer, so never committed
+CLAUDE.local.md
+demo/*
+!demo/*.gif
